@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paint_service</title>
+    <!-- tailwind css link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- remix icon -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config ={
+            theme:{
+                extend:{
+                    colors:{
+                        'primary':'#E54521'
+                    }
+                }
+            }
+        }
+    </script>
+   <style type="text/tailwindcss">
+     @layer components{
+         .container{
+            padding: 0 10px;
+            margin: 0 auto;
+         }
+         .common-p{
+            @apply text-base text-gray-600 font-serif font-normal leading-relaxed;
+         }
+         .common-btn{
+            @apply text-sm text-white font-serif font-medium uppercase py-2 px-4 rounded-full bg-primary hover:ring-2 ring-yellow-500 duration-200;
+         }
+         .common-heading{
+            @apply text-3xl text-black font-serif font-semibold uppercase;
+         }
+         .navigation{
+            right: -500px;
+         }
+         .navigation.active{
+            right: 0px;
+         }
+         .menu-btn.open .line-1{
+           background-color: #fff;
+           transform: rotate(45deg) translateX(14px);
+        }
+        .menu-btn.open .line-2{
+            background-color: transparent;
+        }
+        .menu-btn.open .line-3{
+            background-color: #fff;
+            transform: rotate(-45deg) translateX(14px);
+        }
+     }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-white space-y-24">
+    <div id="hero-part" class="bg-center bg-bottom bg-no-repeat bg-cover relative h-96 md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:h-[950px] overflow-x-hidden" style="background-image: url(image/BG.png);">
+        <header class="">
+            <button class="absolute menu-btn space-y-2 right-[20px] top-[20px] z-50" onclick="show()">
+                <div class="line-1 line w-7 h-0.5 bg-white duration-500"></div>
+                <div class="line-2 line w-7 h-0.5 bg-white duration-200"></div>
+                <div class="line-3 line w-7 h-0.5 bg-white duration-500"></div>
+            </button>
+            <nav class="navigation bg-black/20 backdrop-blur-xl absolute duration-500 flex flex-col items-center top-0 max-w-96 h-screen z-40 space-y-8 pt-[60px]">
+                <div class="logo">
+                    <a href="#"><img src="image/Logo.png" alt=""></a>
+                </div>
+                <ul class="flex flex-col gap-y-4">
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">home</a></li>
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">about us</a></li>
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Services</a></li>
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">FAQs</a></li>
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Our blog</a></li>
+                    <li><a href="#" class="text-sm text-white font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Contact us</a></li>
+                </ul>
+            </nav>
+        </header>
+         <div class="main-banner w-full h-full">
+            <div class="overly absolute flex justify-center items-center w-full h-full bg-black/20">
+                <div class="banner-text max-w-xl xl:max-w-3xl text-center space-y-5 px-1 sm:px-0 pt-12 sm:pt-0">
+                    <h1 class=" w-full text-5xl md:text-6xl xl:text-7xl text-white font-serif text-semibold text-center uppercase">We love to PAint</h1>
+                    <p class="max-w-lg text-base text-white font-serif font-normal mx-auto">Welcome to ABC painting Services, your one-stop solution for exceptional painting services!</p>
+                    <button class="common-btn">Request a quote</button>
+                </div>
+            </div>
+         </div>
+    </div>
+    <!-- offer part start -->
+    <div id="offer-section" class="bg-white">
+        <div class="container">
+            <div class="offer-container space-y-12 bg-white">
+                 <div class="offer-header bg-white text-center md:text-start">
+                    <h2 class="common-heading">What <span class="text-primary">we offer</span></h2>
+                 </div>
+                 <div class="offer-image grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  place-items-center gap-5 xl:gap-8 bg-white">
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-1.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Interior house painting</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-2.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Custom style painting</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-3.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Small paint projects</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-4.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Rooms painting</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-5.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Exterior house painting</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group">
+                        <div class="img">
+                           <img src="image/image-6.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Quality painting</h3>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- welcome part start -->
+    <div id="welcome-section" class="bg-white py-20">
+        <div class="container">
+            <div class="welcome-container max-w-4xl mx-auto text-center space-y-8 bg-white">
+                <h2 class="common-heading w-full">Welcome to <span class="text-primary">ABC PAinter</span></h2>
+                <p class="common-p w-full">Welcome to ABC painter, your trusted partner for top-tier painting solutions. With years of industry expertise, we are committed to delivering extra painting services that exceed your expectations. Our skilled and dedicated team takes pride in transforming spaces into immaculate havens, ensuring painting and hygiene for your homes.</p>
+                <button class="common-btn">More about us</button>
+            </div>
+        </div>
+    </div>
+    <!-- reviews part start -->
+    <div id="reviews-section">
+        <div class="container">
+            <div class="reviews-container space-y-16">
+                <div class="reviews-header text-center">
+                    <h2 class="common-heading">See our <span class="text-primary">clients Reviews</span></h2>
+                </div>
+                <div class="reviews-text grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-6">
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Adam smith</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Sarah anderson</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Kelly Garcia</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden sm:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Adam smith</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden sm:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Sarah anderson</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden sm:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Kelly Garcia</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden sm:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Adam smith</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden sm:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Sarah anderson</h4>
+                    </div>
+                    <div class="inner-item p-5 shadow-[0_0px_15px_rgba(0,0,0,0.3)] space-y-3 hidden md:block hover:ring-2 ring-yellow-500 duration-300">
+                        <ul class="flex">
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                            <li><i class="ri-star-s-fill text-[#FBA01A]"></i></li>
+                        </ul>
+                        <p class="common-p">“A pellen tesque pretium feugiat vel mobi sagittis lorem habi tasse cursus ipsum quis nec eget facilisis. Quis nibh ut bindum nisl quis placerat proin tortor mattis.”</p>
+                        <h4 class="text-base text-gray-900 font-serif font-semibold">Kelly Garcia</h4>
+                    </div>
+                </div>
+                <div class="reviews-btn flex justify-center flex-wrap-reverse gap-3">
+                    <button class="common-btn">Request a quote</button>
+                    <button class="common-btn bg-gray-500">Give us call</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- video part start -->
+    <div id="video-section" class="py-16 bg-white">
+        <div class="container">
+            <div class="video-container space-y-16 bg-white">
+                <div class="video-header text-center">
+                    <h2 class="common-heading">How we <span class="text-primary">make difference</span></h2>
+                </div>
+                <div class="video-part max-w-[1000px] mx-auto">
+                    <video controls autoplay>
+                       <source src="image/video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Guarantee part start -->
+    <div id="guarantee-section">
+        <div class="container">
+            <div class="guarantee-container grid grid-cols-1 gap-y-16 md:grid-cols-[1.5fr_2fr] md:gap-x-16">
+                <div class="guarantee-header space-y-5 text-center md:text-start">
+                    <h2 class="common-heading">Our Guarantee 
+                        <span class="text-primary">ABC painter</span></h2>
+                        <p class="common-p">At ABC Painter, we are committed to delivering exceptional painting services that go beyond the brush strokes. Our promise is built upon a foundation of quality, professionalism, and customer satisfaction. When you choose us for your painting needs, expect our commitments.</p>
+                        <button class="common-btn">Book your estimate</button>
+                </div>
+                <div class="guarantee-text space-y-8">
+                    <div class="inner-item flex gap-x-4">
+                        <div class="icon">
+                            <i class="ri-emotion-happy-line text-2xl text-gray-500"></i>
+                        </div>
+                        <div class="text space-y-2">
+                            <h5 class="text-xl text-black font-sarif font-semibold">Customer Satisfaction</h5>
+                            <p class="common-p">Your satisfaction is our ultimate goal. We are not satisfied until you are thrilled with the final results. We encourage feedback throughout the process to ensure that we meet and exceed your expectations.</p>
+                        </div>
+                    </div>
+                    <div class="inner-item flex gap-x-4">
+                        <div class="icon">
+                            <i class="ri-shield-check-line text-2xl text-gray-500"></i>
+                        </div>
+                        <div class="text space-y-2">
+                            <h5 class="text-xl text-black font-sarif font-semibold">Professional Expertise</h5>
+                            <p class="common-p">Our team consists of skilled painters who bring years of experience to every project. From color selection to surface preparation and application, we approach each step with professionalism and expertise.</p>
+                        </div>
+                    </div>
+                    <div class="inner-item flex gap-x-4">
+                        <div class="icon">
+                            <i class="ri-hand-heart-fill text-2xl text-gray-500"></i>
+                        </div>
+                        <div class="text space-y-2">
+                            <h5 class="text-xl text-black font-sarif font-semibold">Warranty and Assurance</h5>
+                            <p class="common-p">We stand behind the quality of our work. Our projects are backed by our warranty, giving you confidence in the longevity and durability of the painting work we provide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- faq part start -->
+    <div id="faq-section" class="bg-white py-16">
+        <div class="container">
+            <div class="faq-container space-y-16">
+                <div class="faq-header text-center">
+                    <h2 class="common-heading">Frequently asked <span class="text-primary">Questions</span></h2>
+                </div>
+                <div class="main-faq grid grid-cols-1 gap-y-4 sm:gap-y-0 sm:grid-cols-2 sm:gap-x-8">
+                    <div class="faq-one space-y-4">
+                        <div class="collapse collapse-arrow shadow-[0_0px_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                What types of painting services do you offer?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">We offer a wide range of painting services, including interior and exterior painting for residential, commercial, and industrial properties.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                Can you help me choose the right colors for my space?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">We offer a wide range of painting services, including interior and exterior painting for residential, commercial, and industrial properties.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                What is your approach to surface preparation?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">We offer a wide range of painting services, including interior and exterior painting for residential, commercial, and industrial properties.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                Are you insured and licensed?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">We offer a wide range of painting services, including interior and exterior painting for residential, commercial, and industrial properties.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                How long does a typical painting project take?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">We offer a wide range of painting services, including interior and exterior painting for residential, commercial, and industrial properties.</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="faq-two space-y-4">
+                        <div class="collapse collapse-arrow rounded-0 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                How do I request a quote for my project?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">You can easily request a quote by contacting us through our website, phone, or email. We'll gather some basic information about your project and provide you with a detailed and accurate estimate.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                Do you offer eco-friendly paint options?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">You can easily request a quote by contacting us through our website, phone, or email. We'll gather some basic information about your project and provide you with a detailed and accurate estimate.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                Do you offer any warranties for your work?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">You can easily request a quote by contacting us through our website, phone, or email. We'll gather some basic information about your project and provide you with a detailed and accurate estimate.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                How do I prepare for a painting project?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">You can easily request a quote by contacting us through our website, phone, or email. We'll gather some basic information about your project and provide you with a detailed and accurate estimate.</p>
+                            </div>
+                          </div>
+                          <div class="collapse collapse-arrow shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            <input type="radio" name="my-accordion-2" checked="checked" /> 
+                            <div class="collapse-title text-xl text-black font-sarif font-semibold">
+                                Can you provide an estimate over the phone?
+                            </div>
+                            <div class="collapse-content"> 
+                              <p class="common-p">You can easily request a quote by contacting us through our website, phone, or email. We'll gather some basic information about your project and provide you with a detailed and accurate estimate.</p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- latest_work part start -->
+    <div id="latest-section" class="bg-white">
+        <div class="container">
+            <div class="latest-container space-y-12">
+                <div class="latest-header text-center bg-white">
+                    <h2 class="common-heading">Our <span class="text-primary">Latest works</span></h2>
+                </div>
+                <div class="latest-image grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-3 bg-white">
+                     <div class="inner-item group">
+                        <img src="image/image-7.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group">
+                        <img src="image/image-8.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group">
+                        <img src="image/image-9.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group">
+                        <img src="image/image-10.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group">
+                        <img src="image/image-11.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group">
+                        <img src="image/image-12.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group hidden md:block">
+                        <img src="image/imgae-13.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                     <div class="inner-item group hidden md:block">
+                        <img src="image/image-14.png" class="group-hover:scale-95 duration-300" alt="">
+                     </div>
+                </div>
+                <div class="latest-btn text-center">
+                    <button class="common-btn">View all works</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Achievements part start -->
+    <div id="achievements-section" class="bg-white">
+        <div class="container">
+            <div class="achievements-container max-w-7xl mx-auto space-y-16 bg-white">
+                 <div class="achievements-header max-w-2xl mx-auto text-center space-y-3">
+                    <h2 class="common-heading tex">Our <span class="text-primary">Achievements</span></h2>
+                    <p class="common-p">Our journey has been marked by numerous accomplishments and milestones that reflect our dedication to excellence, innovation, and client satisfaction.</p>
+                 </div>
+                 <div class="achievements-counter grid grid-cols-1 sm:grid-cols-2 gap-y-16 lg:grid-cols-4 lg:gap-y-0 ">
+                     <div class="inner-item text-center">
+                         <div class="number">
+                            <span class="counter text-2xl text-gray-800 font-serif font-semibold">64</span><span class=" text-2xl text-gray-800 font-serif font-semibold">K</span>
+                         </div>
+                        <p class="common-p">Satisfied customers</p>
+                     </div>
+                     <div class="inner-item text-center">
+                         <div class="number">
+                            <span class="counter text-2xl text-gray-800 font-serif font-semibold">72</span>
+                         </div>
+                        <p class="common-p">Highly Skilled Members</p>
+                     </div>
+                     <div class="inner-item text-center">
+                         <div class="number">
+                            <span class="counter text-2xl text-gray-800 font-serif font-semibold">20</span><span class=" text-2xl text-gray-800 font-serif font-semibold">+</span>
+                         </div>
+                        <p class="common-p">Awards and Recognitions</p>
+                     </div>
+                     <div class="inner-item text-center">
+                         <div class="number">
+                            <span class="counter text-2xl text-gray-800 font-serif font-semibold">40</span><span class=" text-2xl text-gray-800 font-serif font-semibold">K</span>
+                         </div>
+                        <p class="common-p">Positive Reviews and Testimonials</p>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Schedule part start -->
+    <div id="schedule-section" class="bg-center bg-cover bg-no-repeat h-auto py-20" style="background-image: url(/image/unknown.png);">
+        <div class="container">
+            <div class="schedule-container max-w-3xl mx-auto   p-1">
+                <div class="schedule-header bg-gray flex flex-col text-center gap-y-5 sm:gap-x-4 sm:flex-row sm:text-start sm:gap-y-0 justify-between items-center">
+                    <h2 class="common-heading basis-3/5">Ready to Schedule your <span class="text-primary">estimate?</span></h2>
+                    <button class="common-btn basis-2/5">Schedule and estimate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- informed part start -->
+    <div id="informed-section">
+        <div class="container">
+            <div class="informed-container space-y-16">
+                <div class="informed-header text-center">
+                    <h2 class="common-heading">Get <span class="text-primary">informed</span></h2>
+                </div>
+                <div class="informed-image grid grid-cols-1 gap-y-10 sm:gap-y-0 sm:grid-cols-2 gap-x-4 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="inner-item space-y-2 group flex flex-col items-center text-center sm:text-start">
+                        <div class="img">
+                           <img src="image/image-15.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text space-y-3 text-center sm:text-start flex flex-col items-center sm:items-start ">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Top 10 best Painting Companies</h3>
+                            <p class="common-p max-w-[450px] sm:max-w-[100%]">Sagittis pulvi adipi massanar ut dis venenatis nunc nunc vitae aliquam vestibulum. Elit adipi massa diam in dignissim...</p>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group flex flex-col items-center text-center sm:text-start sm:hidden lg:block">
+                        <div class="img">
+                           <img src="image/image-16.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text space-y-3 text-center sm:text-start flex flex-col items-center sm:items-start">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">How color effects your livelihood</h3>
+                            <p class="common-p  max-w-[450px] sm:max-w-[100%]">Pulvinar sagittis ut dis vene natis nunc nunc vitae aliquam vestibulum. Elit adipi massa diam in dignis pulvinar ut dis venenatis sim...</p>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inner-item space-y-2 group flex flex-col items-center text-center sm:text-start">
+                        <div class="img">
+                           <img src="image/image-17.png" class="group-hover:scale-95 duration-300" alt="">
+                        </div>
+                        <div class="text space-y-3 text-center sm:text-start flex flex-col items-center sm:items-start">
+                            <h3 class="text-xl text-gray-900 font-serif font-medium">Why are we best painting company</h3>
+                            <p class="common-p  max-w-[450px] sm:max-w-[100%]">Elit adipi massa diam in dignissim. Sagittis pulvinar ut dis venenatis nunc nunc vitae aliquam vestibu adipi massa diamlum... </p>
+                            <button class="flex items-center gap-x-1 text-sm text-gray-500 font-serif font-medium capitalize hover:text-primary hover:underline underline-offset-2 duration-200 transition-all">
+                                <span class="">learn more</span>
+                                <i class="ri-arrow-right-line "></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="informed-btn flex justify-center">
+                    <button class="common-btn">Older articles</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- info part start -->
+    <div id="info-section" class="bg-white pt-10 pb-10">
+       <div class="container">
+        <div class="info-container grid grid-cols-1 sm:grid-cols-3 gap-y-5 md:gap-x-10">
+           <div class="info-item">
+              <ul>
+                <li class="flex items-center justify-start md:justify-center gap-x-5">
+                    <div class="icon w-[40px] h-auto">
+                        <img src="image/call-icon.png" class="w-full h-auto" alt="">
+                    </div>
+                    <div class="text">
+                        <h5 class="text-lg text-black font-serif font-medium">Give us Call:</h5>
+                        <a href="#" class="common-p hover:text-blue-800 hover:underline duration-400">123 456 7891</a>
+                    </div>
+                </li>
+              </ul>
+           </div>
+           <div class="info-item">
+              <ul>
+                <li class="flex items-center justify-center gap-x-5">
+                    <div class="icon  w-[40px] h-auto">
+                        <img src="image/location-icon.png" class="w-full h-auto" alt="">
+                    </div>
+                    <div class="text">
+                        <h5 class="text-lg text-black font-serif font-medium">Phoenix, Arizona</h5>
+                         <p class="common-p">947 Dogwood Road</p>
+                    </div>
+                </li>
+              </ul>
+           </div>
+           <div class="info-item">
+            <ul>
+              <li class="flex items-center justify-end md:justify-center gap-x-5">
+                  <div class="icon w-[40px] h-auto">
+                    <img src="image/pen-icon.png" class="w-full h-auto" alt="">
+                </div>
+                  <div class="text">
+                      <h5 class="text-lg text-black font-serif font-medium">free quote</h5>
+                      <a href="#" class="common-p hover:text-blue-800 hover:underline duration-400">Request quote</a>
+                  </div>
+              </li>
+            </ul>
+         </div>
+        </div>
+       </div>
+    </div>
+    <!-- footer part start -->
+    <footer>
+        <div class="container">
+            <div class="footer-container max-w-[1008px] space-y-5  divide-y divide-gray-300">
+                <div class="footer-header w-full text-center space-y-6">
+                    <div class="logo flex justify-center">
+                        <img src="image/Logo.png" alt="">
+                    </div>
+                    <p class="common-p">We are a painting company located in Phoenix, Arizona serving Sedona, Sedona, Grand Canyon National Park, Tucson, Scottsdale, Monument Valley, Antelope Canyon, Flagstaff, Petrified Forest National Park, Bisbee, Lake Havasu City, Jerome, Organ Pipe Cactus National Monument, Horseshoe Bend, Kartchner Caverns State Park, Saguaro National Park.</p>
+                </div>
+                <div class="footer-menu w-full pt-3 space-y-5">
+                    <ul class="flex gap-x-6 gap-y-3 flex-wrap justify-center">
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">home</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">about us</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Services</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">FAQs</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Our blog</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 font-serif font-medium uppercase hover:text-red-500 duration-200 transition-all">Contact us</a></li>
+                    </ul>
+                    <ul class="max-w-[320px] mx-auto flex justify-between">
+                        <li><a href="#"><i class="ri-facebook-fill text-2xl text-red-400 hover:text-red-400 duration-300"></i></a></li>
+                        <li><a href="#"><i class="ri-instagram-fill text-2xl hover:text-red-400 duration-300"></i></a></li>
+                        <li><a href="#"><i class="ri-linkedin-fill text-2xl hover:text-red-400 duration-300"></i></a></li>
+                        <li><a href="#"><i class="ri-twitter-fill text-2xl hover:text-red-400 duration-300"></i></a></li>
+                        <li><a href="#"><i class="ri-blogger-fill text-2xl hover:text-red-400 duration-300"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright bg-gray-400 flex justify-center items-center flex-wrap gap-2 mt-3 py-3">
+            <p class="common-p text-white">copyright@ 2024 design by Hasibur</p>
+            <a href="https://hasiburrahmanbiplab.github.io/car-rent-website/" class="common-p text-yellow-400 hover:underline">view more design</a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- jquery link -->
+     <script src="js/code.jquery.com_jquery-1.12.4.min.js"></script>
+    <!-- counter up -->
+    <script src="js/cdnjs.cloudflare.com_ajax_libs_waypoints_2.0.3_waypoints.min.js"></script>
+     <script src="js/jquery.counterup.min.js"></script>
+    <!-- main js link -->
+    <script src="js/script.js"></script>
+</body>
+</html>
