@@ -42,10 +42,16 @@
             @apply text-3xl text-black font-serif font-semibold uppercase;
          }
          .navigation{
-            right: -500px;
+            top: -500px;
+            right: 0;
+            max-width: 320px;
+            opacity: 0;
+            visibility: hidden;
          }
          .navigation.active{
-            right: 0px;
+            top: 0;
+            opacity: 1;
+            visibility: visible;
          }
          .menu-btn.open .line-1{
            background-color: #fff;
@@ -70,7 +76,7 @@
             <div class="line-2 line w-7 h-0.5 bg-white duration-200"></div>
             <div class="line-3 line w-7 h-0.5 bg-white duration-500"></div>
         </button>
-        <nav class="navigation bg-black/20 backdrop-blur-xl absolute duration-500 flex flex-col items-center top-0 max-w-96 h-screen z-50 space-y-8 pt-[60px]">
+        <nav class="navigation bg-black/20 backdrop-blur-xl absolute duration-500 flex flex-col items-center  h-screen z-50 space-y-8 pt-[60px]">
             <div class="logo">
                 <a href="#"><img src="image/Logo.png" alt=""></a>
             </div>
@@ -686,19 +692,6 @@
             <a href="https://hasiburrahmanbiplab.github.io/car-rent-website/" class="common-p text-yellow-400 hover:underline">view more design</a>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
      <!-- jquery link -->
      <script src="js/code.jquery.com_jquery-1.12.4.min.js"></script>
     <!-- counter up -->
